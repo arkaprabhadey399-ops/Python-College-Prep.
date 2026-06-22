@@ -142,12 +142,170 @@ print(s1.name)"""                                  # object attribute > class at
 
 #----------------------------Methods------------------------------#
 
-class Students:
+"""class Students:
     College_Name="ICE"
     def __init__(self,name,marks):
         self.name=name
         self.marks=marks
         print("Viewing students Profile")
-    def greet_student(self):
-        print("Welcome!! ",self.name ,"/nYour Marks is: ",self.marks)
+    def greet_student(self):                                                       # we are calling this for all objects hence the first parameter must be self
+        print("Welcome!!", self.name, "\nYour Marks is:", self.marks)
+        return "Welcome!!", self.name, "Your Marks is:", self.marks
 
+s1=Students("Rishabh", 88)
+print(s1.College_Name)
+
+s1.greet_student()
+
+print("Welcome!!",s1.name)
+print("Your Marks is: ",s1.marks)                         # can also be done by this
+
+s2=Students("Pramit",77)
+print(s2.College_Name)
+print(s2.greet_student())"""
+
+# QUESTIONS:
+
+#(Q1) : Create student class that takes names & marks of 3 subjects as arguments in constructor. Then create a method to print the average .
+
+"""class Student:
+    def __init__(self,name,sub1,sub2,sub3):
+        self.name=name
+        self.m1=sub1
+        self.m2=sub2
+        self.m3=sub3
+        print("Viewing Student Profile")
+    def calc_avg(self):                                                     # self is taken as first parameterr so that we can call this method for diff objects
+        sum = self.m1+self.m2+self.m3
+        print("Welcome!!",self.name)
+        print("The average of your marks in 3 subjects are: ",sum/3)
+
+
+s1=Student("Adarsh",91,97,95)
+s1.calc_avg()"""
+
+#Alt Approach:
+
+"""class Student:
+    def __init__(self,name,marks):                                          # marks of 3 sub should be in list tuple dictionary or sets
+        self.name=name
+        self.marks=marks
+    def get_avg(self):
+        sum = 0                                                             # using Loops
+        for val in self.marks:
+            sum+=val
+        print("Welcome",self.name,"your avg marks is",sum/3)
+
+s1=Student("Amit",[99,98,97])
+s1.get_avg()
+
+s1.name="Rohan"                                  # we can also change any agrument for any object directly like this
+s1.get_avg()"""
+
+#---------------Static method----------------#
+
+"""class Students:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+        print("Adding Students")
+
+    @staticmethod                                               # so that (object.age_valid) does not give error
+    def age_valid():                                            # we haven't used self parameter in this function , so to call it for different objects we use Staticmethod
+        print("You can sign petition")
+    
+    def info(self):
+        print("Welcome",self.name,"!!")
+        print("Your age-> ",self.age)
+
+s1=Students("Aman",16)
+s1.info()
+
+s2=Students("Pawan",19)
+s2.info()
+s2.age_valid()                      
+
+s3=Students("Adarsh",18)
+s3.info()
+s3.age_valid()
+
+s4=Students("Lucky",16)
+s3.info()"""
+
+#---------Pilars of OOPS-----------#
+
+#(a): Abstraction : Hiding unnessary work from user
+
+# An Example
+"""class Auto_Car:                                       # Like abstraction when a car starts the drive doesn't see the underlaying mechanisms of the car
+    def __init__(self):                               # before the car starts
+        self.engine=False
+        self.clutch=False
+        self.ignition=False
+    def turn_key(self):                               # after the key is turned
+        self.engine=True
+        self.clutch=True                              # asuming this is an automatic car , all these processes are not seen by the the driver
+        self.ignition=True
+        print("Car Started...........!!")
+
+c1=Auto_Car()
+c1.turn_key()"""
+
+
+#(b): Encapsulation : Wrapping data and function into a single unit(object):
+
+#Example:
+#All the codes we have written so far in this file .
+
+"""class Students:
+    def __init__(self,name,age):                             # All the data and functions are wrapped inside Students
+        self.name=name
+        self.age=age
+        print("Adding Students")
+
+    @staticmethod                                               
+    def age_valid():                                           
+        print("You can sign petition")
+    
+    def info(self):
+        print("Welcome",self.name,"!!")
+        print("Your age-> ",self.age)"""
+
+# Questions:
+
+#(Q1): Create account class for two attributes-balance & account number. Create methods for debit, credit and printing the balance
+
+
+"""class Account:
+    print("Welome to Automated Service ")
+   
+    def __init__(self,name,balance,account_no):
+        self.name=name
+        self.balance = balance
+        self.account_no = account_no
+        print("Hello..!!")
+        print("Intialising some Information")
+
+    def debit(self,v1):
+        self.balance-=v1
+        print("*Debited amount from bank-> $",v1)
+
+    def credit(self,v2):
+        self.balance+=v2
+        print("*Credited amount to bank-> $ ",v2)
+
+    def Details(self):
+        
+        print("=============================Your account Details:-============================ ")
+        print(" Your Name-> ",self.name)
+        print(" Your Account Number-> ",self.account_no)
+        print(" Present amount in bank-> $",self.balance)
+
+
+p1=Account("Avinash",4569,1234567)
+p1.debit( 14)
+p1.credit(24)
+p1.Details()"""
+
+
+# To be continued
