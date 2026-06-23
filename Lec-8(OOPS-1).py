@@ -2,14 +2,14 @@
 
 #(A)
 
-"""class Student:                                 # defying a class(blueprint) with several info
-    name = "Arjun"
+"""class Student:                                 # Here Students is a class
+    name = "Arjun"                                # here 'name' ,'profession' are attributes ( precisely class attribute)
     age = "23"
     profession = "Freelancing"
 
-s1 = Student()                                # s1 is the object variable. we have to assing it with a particular class(blueprint) from which we are going to, by adding parenthisis we are basically calling the constructer
+s1 = Student()                                # s1 is the object . we have to assing it with a particular class(blueprint) from which we are going to, by adding parenthisis we are basically calling the constructer
 print(s1)                                     # prints what is s1
-print(s1.name)                                # prints the value of name in the class assigned to s1
+print(s1.name)                                # prints the value of name (class attribute) in the Student class assigned to s1
 print(s1.age)                                 # prints the value of age in the class assigned to s1
 print(s1.profession)                          # prints the value of profession in the class assigned to s1
 
@@ -231,6 +231,31 @@ s3.age_valid()
 
 s4=Students("Lucky",16)
 s3.info()"""
+
+ # this can also be done without using static method
+
+"""class Students:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        print("Adding Students")
+
+    # Removed staticmethod so it can access self.age
+    def age_valid(self): 
+        if self.age >= 18:
+            print(f"{self.name}, you can sign the petition.")
+        else:
+            print(f"{self.name}, you are too young to sign.")
+
+    def info(self):
+        print("Welcome", self.name, "!!")
+        print("Your age-> ", self.age) 
+
+
+s1 = Students("Alice", 20)
+s1.info()
+s1.age_valid()""" 
+
 
 #---------Pilars of OOPS-----------#
 
