@@ -12,9 +12,9 @@ print(s1)                                     # prints what is s1
 print(s1.name)                                # prints the value of name (class attribute) in the Student class assigned to s1
 print(s1.age)                                 # prints the value of age in the class assigned to s1
 print(s1.profession)                          # prints the value of profession in the class assigned to s1
-
+print(Student.name)                           # class objects can also be accesed by this
 s2 = Student()
-print(s2.name) """                               # This will be same as s1 as both s1 and s2 are assigned same class( "Student") and the name in student class is fixed ("Arjun")
+print(s2.name)"""                               # This will be same as s1 as both s1 and s2 are assigned same class( "Student") and the name in student class is fixed ("Arjun")
 
 #(B)
 """class CarM:                                         # by defing class we are making the blueprint of a carM
