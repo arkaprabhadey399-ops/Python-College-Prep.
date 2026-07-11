@@ -359,3 +359,85 @@ n=int(input("Enter number: "))
 final_sum=recursive_sum(n)
 print("Sum of first",n,"natural number is -->", end=" ")
 print(final_sum)"""
+
+#%% 
+
+# Lamda Function:
+
+# Not using lamda function:
+
+def square(x):
+    return x*x
+# print(square(5))
+
+def radius(fx,fy):                      # passing a function as an argument. Functions can also be passed as arguments in another function
+    return fx + fy
+
+circle_rad = radius(square(4),square(3))
+
+print(circle_rad)
+
+#%%
+# Using lamda function
+# Syntax : lamda (what_it_takes): (what_it_will_return) 
+
+square = lambda x : x*x
+# print(square(7))                            
+
+def radius(fx,valx,fy,valy):
+    return fx(valx) + fy(valy)               # this is not multiply, fx(valx) is actually calling another function with parameter x like square(x)
+print(radius(square,3,square,4))
+
+# Whats actually happening :
+
+# lamda creates an anonymous function which take a parameter : returns worked out parameter
+# when we are defying radius (fx,valx,fy,valy) we are just passing some parametized temporary name and values. Actually we are trying to pass a funtion in the argument of another function.
+# actually fx(valx) is infact calling that previous function with parameter valx. in turns the radius function performs operation with that previous function
+# having argument valx
+# we can call any fx(valx) like anything we have defined earlier , valx is a paramenter for any previous function fx
+
+
+#%%
+
+# More examples on lamda function
+
+square = lambda x: x**2
+cube = lambda y: y**3
+avg = lambda x,y,z : (x+y+z)/3
+
+def random_func(fx,x):
+    return fx(x) + 6
+
+print(random_func(square,5))                           # here we are calling the squre function with arg 5
+print(random_func(cube,2))
+
+# Now for this as there are three arg in the pervious function and only one ith new function(for that old func):
+"""print(random_func(avg,(1,3,5)))"""      #----------> Type error , as a tuple is only considered as 1 arg and we need 2 more for avg function
+
+# There is two methods of doing it :
+
+#M-I : The astric(*) method: seperates every element of a tuple and consider them as an argument
+
+square = lambda x: x**2
+cube = lambda y: y**3
+avg = lambda x,y,z : (x+y+z)/3
+
+def random_func(fx,x):
+    return fx(*x) + 6                   # now we can pass a tuple through x and it will seperate all individual elements and consider them as an argument
+
+print(random_func(square,(5,)))        # now we have to pass singular elements as tuple also as now x only accepts tuples            
+print(random_func(cube,(2,)))
+print(random_func(avg,(1,3,5)))          # gives 9.0 as ans
+
+
+#M-II : The data method, no need of passing argument
+
+avg_tuple = lambda data: sum(data) / len(data)                # everything else remains completely same only avg changed
+
+def random_func(fx, x):
+    return fx(x) + 6
+
+# This works perfectly now because avg_tuple expects a single object
+print(random_func(avg_tuple, (1, 3, 5)))  # Outputs: 9.0
+
+
